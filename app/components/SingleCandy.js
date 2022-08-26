@@ -16,7 +16,6 @@ const SingleCandy = () => {
     },[])
 
     const handleChange = (event) => {
-        console.log("candy id:",params.id)
         dispatch(updateQuantity(params.id,event.target.value))
     }
 
