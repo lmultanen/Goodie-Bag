@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useSearchParams } from "react-router-dom";
-import { fetchCandy, updateQuantity } from "../candyReducer";
+import { fetchCandy, unmountCandy, updateQuantity } from "../candyReducer";
 
 const SingleCandy = () => {
     const params = useParams()
@@ -10,9 +10,13 @@ const SingleCandy = () => {
 
     React.useEffect(() => {
         dispatch(fetchCandy(params.id))
-    },[candy.name])
+        return () => {
+            dispatch(unmountCandy())
+        }
+    },[])
 
     const handleChange = (event) => {
+        console.log("candy id:",params.id)
         dispatch(updateQuantity(params.id,event.target.value))
     }
 

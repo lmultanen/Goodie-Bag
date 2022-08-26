@@ -23,6 +23,7 @@ router.get('/:id', async (req,res,next) => {
 router.put('/:id', async (req,res,next) => {
     try {
         const candy = await Candy.findByPk(req.params.id)
+        console.log("updating candy:", candy)
         res.send(await candy.update(req.body))
     } catch (err) {
         next(err)
