@@ -40,3 +40,7 @@ main {
   color: white;
   margin: 5px;
 }
+
+#candies-list {
+  justify-content: center;
+}
