@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Candies from "./components/Candies";
 
 const Root = () => {
@@ -7,8 +7,17 @@ const Root = () => {
     <div>
       <nav>
         Goodie Bag
-        <Link to="/">Home</Link>
-        <Link to="/candies">Candies</Link>
+        <NavLink  to="/"
+        className='nav-link'
+        style={({isActive}) => ({
+          color: isActive ? 'skyblue' : 'white'
+        })}>Home</NavLink>
+        
+        <NavLink to="/candies"
+        className='nav-link'
+        style={({isActive}) => ({
+          color: isActive ? 'skyblue' : 'white'
+        })}>Candies</NavLink>
       </nav>
       <main>
         <h1>Welcome to the Goodie Bag!</h1>
